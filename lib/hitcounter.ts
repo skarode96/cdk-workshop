@@ -25,6 +25,10 @@ export class Hitcounter extends cdk.Construct{
                 DOWNSTREAM_FUNCTION_NAME: props.downstream.functionName,
                 HITS_TABLE_NAME: table.tableName
             }
-        })
+        });
+
+        table.grantReadWriteData(this.handler);
+
+        props.downstream.grantInvoke(this.handler);
     }
 }

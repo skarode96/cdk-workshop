@@ -19,7 +19,7 @@ export class AwsCdkWorkshopStack extends cdk.Stack {
     });
 
     const apigateway = new apigw.LambdaRestApi(this, 'Endpoint', {
-      handler: hello
+      handler: helloWithCounter.handler
     })
 
   }
